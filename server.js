@@ -25,9 +25,12 @@ app.locals.siteName = 'Express-Stormpath Example Project';
 console.log('Initializing Stormpath');
 
 app.use(stormpath.init(app, {
+  debug: 'info, error',
   website: true,
-  expand: {
-    customData: true
+  web: {
+    register: {
+      autoLogin: true
+    }
   }
 }));
 
